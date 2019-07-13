@@ -50,3 +50,11 @@ do
     cp libssl.so ../$arch
     cd ..
 done
+
+for arch in "x86_64" "x86" "arm64" "arm"; do
+    cd $arch;
+    for i in `ls`; do
+        sha256sum $i > $i.sum256;
+    done;
+    cd ..;
+done
