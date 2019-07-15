@@ -2,7 +2,7 @@
 
 VERSION=1.1.1b
 export ANDROID_NDK_HOME=~/bldsrc/android-ndk-r19c
-ANDROID_API=21
+ANDROID_API=26
 
 if [ ! -f "openssl-$VERSION.tar.gz" ]; then
     wget https://www.openssl.org/source/openssl-$VERSION.tar.gz
