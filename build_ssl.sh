@@ -1,8 +1,8 @@
 #!/bin/bash
 
-VERSION=1.1.1b
+VERSION=1.1.1c
 export ANDROID_NDK_HOME=~/bldsrc/android-ndk-r19c
-ANDROID_API=22
+ANDROID_API=24
 
 if [ ! -f "openssl-$VERSION.tar.gz" ]; then
     wget https://www.openssl.org/source/openssl-$VERSION.tar.gz
@@ -18,16 +18,16 @@ do
 
     case $arch in
         arm)
-            ANDROID_API=22
+            ANDROID_API=24
             ;;
         x86)
-            ANDROID_API=22
+            ANDROID_API=24
             ;;
         arm64)
-            ANDROID_API=22
+            ANDROID_API=24
             ;;
         x86_64)
-            ANDROID_API=22
+            ANDROID_API=24
             ;;
     esac
     ANDROID_TOOLCHAIN=""
