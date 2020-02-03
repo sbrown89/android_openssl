@@ -51,8 +51,8 @@ do
     ./Configure shared android-${arch} -D__ANDROID_API__=${ANDROID_API} || exit 1
     make depend
     make -j$(nproc) build_libs || exit 1
-    llvm-strip -strip-all libcrypto.so
-    llvm-strip -strip-all libssl.so
+    llvm-strip --strip-all libcrypto.so
+    llvm-strip --strip-all libssl.so
     cp libcrypto.so ../$arch
     cp libssl.so ../$arch
     cd ..
