@@ -1,7 +1,14 @@
 #!/bin/bash
 
 VERSION=1.1.1c
-export ANDROID_NDK_HOME=$(readlink -f ~/Android/Sdk/ndk/20.*.*)
+if [[ -z $ANDROID_NDK_HOME && -z $1 ]]; then
+    echo "ANDROID_NDK_HOME environment variable must be set or passed in as arg. Ex: ~/Android/Sdk/ndk/20.*.*";
+    exit 1;
+fi
+
+if [[ ! -z $1 ]]; then
+    ANDROID_NDK_HOME=$1
+fi
 ANDROID_API=24
 
 if [ ! -f "openssl-$VERSION.tar.gz" ]; then
