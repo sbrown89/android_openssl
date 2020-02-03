@@ -7,7 +7,7 @@ if [[ -z $ANDROID_NDK_HOME && -z $1 ]]; then
 fi
 
 if [[ ! -z $1 ]]; then
-    ANDROID_NDK_HOME=$1
+    export ANDROID_NDK_HOME=$1
 fi
 ANDROID_API=24
 
