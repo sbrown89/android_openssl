@@ -48,6 +48,14 @@ do
 
     export PATH="$ANDROID_TOOLCHAIN":"$PATH"
 
+    ./Configure android-${arch} -D__ANDROID_API__=${ANDROID_API} || exit 1
+    make depend
+    make -j$(nproc) build_libs || exit 1
+    llvm-strip --strip-all libcrypto.a
+    llvm-strip --strip-all libssl.a
+    cp libcrypto.a ../$arch
+    cp libssl.a ../$arch
+    
     ./Configure shared android-${arch} -D__ANDROID_API__=${ANDROID_API} || exit 1
     make depend
     make -j$(nproc) build_libs || exit 1
